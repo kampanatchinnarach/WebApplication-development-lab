@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div id="maincontainer"></div>
+        <script>
+
+            // create element
+            main = document.getElementById("maincontainer");
+            var h1 = document.createElement("h2");
+            var h2 = document.createElement("h1");
+            var button = document.createElement("button");
+            var info = document.createElement("a");
+            var perInfo = document.createElement("a");
+            var div1 = document.createElement("div");
+            var div2 = document.createElement("div");
+            document.body.onload = addElement;
+            var worker;
+            var count =0;
+            button.setAttribute("id","time");
+
+            // function add Element
+            function addElement(){
+               
+                //create h2
+                h1.innerHTML = "Exercise 04: JavaScript&DOM";
+                // add h in main 
+                main.appendChild(h1);
+                main.appendChild(document.createElement("br"));
+                //create button
+                button.innerText = "Click me to display Date and time";
+                div1.appendChild(button);
+                main.appendChild(div1);
+                main.appendChild(document.createElement("br"));
+                button.setAttribute("id", "inputBTN");
+                button.onclick = function(){
+                    startWorker();
+                    return false;
+                    
+                }
+
+                // infomation personal
+                info.innerHTML = "personal info";
+                info.style.textDecoration = "underline";
+                info.style.width = "fit-content"; 
+                info.href ="#";
+                info.style.color = "hotpink";
+                main.appendChild(info);
+                info.onmouseover = function(){
+                    info.style.color = "blue";
+                    info.style.backgroundColor = "yellow"
+                }
+                info.onmouseout = function(){
+                    info.style.color = "hotpink";
+                    info.style.backgroundColor = "white"
+                }
+                info.onclick = function(){
+                    openPersonalInfo()
+                    return false;
+                }
+                
+
+                perInfo.setAttribute("id","perInfo");
+                perInfo.style.display = "none";
+
+                //personal info 
+
+                var ul = document.createElement("ul");
+                var l1 = document.createElement("li");
+                var l2 = document.createElement("li");
+                var l3 = document.createElement("li");
+                var nameID = document.createTextNode("Kampanat Chinnaracah, ID : 64010042");
+                var subject = document.createTextNode("subject : Web Application development");
+                var semester = document.createTextNode("semester : 2");
+                l1.appendChild(nameID);
+                l2.appendChild(subject);
+                l3.appendChild(semester);
+                ul.appendChild(l1);
+                ul.appendChild(l2);
+                ul.appendChild(l3);
+
+                perInfo.appendChild(ul);
+
+                function openPersonalInfo(){
+                    var openP = document.getElementById("perInfo");
+                    if(openP.style.display == "none"){
+                        openP.style.display = "block";
+
+                    }
+                    else{
+                        openP.style.display = "none";
+                    }
+                }
+                div2.appendChild(perInfo);
+                main.appendChild(div2);
+
+
+                h2.innerHTML = "Snapshots";
+                main.appendChild(h2);
+
+                //picture
+                
+                var piclist = document.createElement("ul");
+                var pic1 = document.createElement("li");
+                var piclink1 = document.createElement("a");
+                piclink1.href = "#";
+                piclink1.textContent = "Fireworks";
+                piclist.appendChild(pic1);
+                pic1.appendChild(piclink1);
+                main.append(piclist);
+
+                piclink1.onclick = function(){
+                    var existingImg = main.getElementsByTagName("img")[0];
+                    if (existingImg) {
+                        main.removeChild(existingImg);
+                    }
+                    var img = document.createElement("img");
+                    img.src = "https://www.ontariosciencecentre.ca/media/2093/fireworkscircle3.jpg"
+                    img.width = "600";
+                    img.height = "600";
+                    img.alt = "";
+                    main.appendChild(img);
+                }
+                //main.appendChild(pic1);
+
+                var pic2 = document.createElement("li");
+                var piclink2 = document.createElement("a");
+                piclink2.href = "#";
+                piclink2.textContent = "Crest";
+                pic2.appendChild(piclink2);
+                piclist.appendChild(pic2);
+                
+                piclink2.onclick = function(){
+                    var existingImg = main.getElementsByTagName("img")[0];
+                    if (existingImg) {
+                        main.removeChild(existingImg);
+                    }
+                    var img = document.createElement("img");
+                    img.src = "https://www.buriramunited.com/public/themes/buriram/assets/images/logo/default.png";
+                    img.width = "600";
+                    img.height = "600";
+                    img.alt = "Crest";
+                    main.appendChild(img);
+                }
+                //main.appendChild(pic2);
+                
+                var pic3 = document.createElement("li");
+                var piclink3 = document.createElement("a");
+                piclink3.href = "#";
+                piclink3.textContent = "action";
+                pic3.appendChild(piclink3);
+                piclist.appendChild(pic3);
+                
+                piclink3.onclick = function(){
+                    var existingImg = main.getElementsByTagName("img")[0];
+                    if (existingImg) {
+                        main.removeChild(existingImg);
+                    }
+                    var img = document.createElement("img");
+                    img.src = "https://www.aljazeera.com/wp-content/uploads/2022/12/SOR03134.jpg?resize=770%2C513&quality=80";
+                    img.width = "700";
+                    img.height = "500";
+                    img.alt = "action";
+                    main.appendChild(img);
+                }
+                //main.appendChild(pic3);
+
+                var pic4 = document.createElement("li");
+                var piclink4 = document.createElement("a");
+                piclink4.href = "#";
+                piclink4.textContent = "buffalo";
+                pic4.appendChild(piclink4);
+                piclist.appendChild(pic4);
+                
+                piclink4.onclick = function(){
+                    var existingImg = main.getElementsByTagName("img")[0];
+                    if (existingImg) {
+                        main.removeChild(existingImg);
+                    }
+                    var img = document.createElement("img");
+                    img.src = "https://i.natgeofe.com/n/de7be89d-3715-4e89-b83b-ab697ef781b8/thumbnail-cape-buffalo-nationalgeographic_1976203_3x2.jpg";
+                    img.width = "600";
+                    img.height = "400";
+                    img.alt = "buffalo";
+                    main.appendChild(img);
+                }
+              //  main.appendChild(pic4);
+                main.appendChild(document.createElement("br"));
+
+
+                //picture that show before you click
+                var img = document.createElement("img"); 
+                img.src = "http://www.nasa.gov/sites/default/files/thumbnails/image/artemis_logo_0.png";
+                img.alt = "artemis";
+                img.width = "1000";
+                img.height = "300";
+                main.appendChild(img);
+
+
+
+
+
+
+
+
+            }
+            function startWorker(){
+                // change style Button
+                button.style.position = "fixed";
+                button.style.right = "0";
+                button.style.top = "0";
+                button.style.width = "355px";
+                button.style.textAlign = "center";
+                button.style.border = "solid black";
+
+                button.onclick = function(){ //when you click again
+                    
+                    button.style.position = "static";
+                    stopWorker();
+                    button.onclick = function(){
+                        button.style.display = "block";
+                        startWorker();
+                    }
+                }
+
+                if (typeof (Worker) !== "undefined") {
+                    if (typeof (worker) == "undefined") {
+                        worker = new Worker("worker.js"); // worker.js will read new Date() every 1 second 
+                    }
+                    worker.postMessage("start");
+                    var bgColors = ["azure","grey","orange","black","navy","magenta"];
+                    var colors = ["blue","pink","green","orange","yellow","red"];
+                    var currentColor = 0;
+                    function changeColor()  //change color
+                    {
+                        --currentColor
+
+                        if (currentColor < 0) currentColor = colors.length - 1;
+
+                        for (var i = 0; i < 7; i++) 
+                        {
+                            button.style.color = colors[(currentColor +i) % colors.length]
+                            button.style.backgroundColor = bgColors[(currentColor+i)% colors.length]
+                        }
+                    }
+                    intervalID = setInterval(changeColor, 1000)
+                    
+                    worker.addEventListener("message", function(event) 
+                    {
+                        button.textContent = event.data;
+                        
+                    });
+                } else {
+                    document.getElementById("time").innerHTML = "Sorry! No Web Worker support.";
+                }
+            }
+            // stop Worker when you click buttton
+            function stopWorker() {
+                worker.postMessage("stop");
+                clearInterval(intervalID);
+                button.style.position = '';
+                worker.terminate();
+                worker = undefined;
+              }
+
+            
+
+
+          
+        </script>
+    </body>
+</html>
